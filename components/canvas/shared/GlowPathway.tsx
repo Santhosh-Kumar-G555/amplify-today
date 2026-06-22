@@ -45,7 +45,8 @@ export function GlowPathway({
   return (
     <group>
       {/* Static pathway line */}
-      <line geometry={lineGeometry}>
+      <line>
+        <primitive object={lineGeometry} attach="geometry" />
         <lineBasicMaterial
           color={color}
           transparent

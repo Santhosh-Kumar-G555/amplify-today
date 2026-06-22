@@ -1,5 +1,8 @@
 // components/sections/ServicesStrip.tsx
+'use client'
+
 import { twMerge } from 'tailwind-merge'
+import { motion } from 'framer-motion'
 
 interface Service {
   icon: string
@@ -33,26 +36,46 @@ export function ServicesStrip() {
       id="services"
       className="relative z-20 w-full py-16 px-6 md:px-12 bg-abyss border-y border-smoke"
     >
-      <p className="font-mono text-xs tracking-[0.3em] uppercase text-muted text-center mb-10">
+      <motion.p
+        className="font-mono text-xs tracking-[0.3em] uppercase text-muted text-center mb-10"
+        initial={{ opacity: 0, y: -10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
         EVERYTHING YOUR BUSINESS NEEDS — UNDER ONE ROOF
-      </p>
+      </motion.p>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 max-w-6xl mx-auto">
+      <motion.div
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 max-w-6xl mx-auto"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={{
+          visible: { transition: { staggerChildren: 0.1 } },
+          hidden: {}
+        }}
+      >
         {SERVICES.map(({ icon, label, color }) => (
-          <div
+          <motion.div
             key={label}
+            variants={{
+              hidden: { opacity: 0, scale: 0.9 },
+              visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } }
+            }}
+            whileHover={{ scale: 1.05 }}
             className={twMerge(
               'flex flex-col items-center gap-2 p-4 border backdrop-blur-sm',
-              'font-mono text-xs uppercase tracking-wider text-center',
-              'transition-transform duration-300 hover:scale-105 hover:shadow-lg',
+              'font-mono text-xs uppercase tracking-wider text-center cursor-pointer',
+              'transition-shadow duration-300 hover:shadow-lg',
               colorMap[color]
             )}
           >
             <span className="text-2xl">{icon}</span>
             <span>{label}</span>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   )
 }
