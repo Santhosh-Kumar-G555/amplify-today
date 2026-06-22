@@ -106,7 +106,7 @@ export function SceneController() {
         <ConnectionLayer progress={progress} />
 
         <PostProcessing />
-        <fogExp2 attach="fog" color="#000000" density={fogDensity} />
+        <fogExp2 attach="fog" args={["#000000", fogDensity]} />
       </Suspense>
     </Canvas>
   )

@@ -16,7 +16,7 @@ export function PostProcessing() {
   const chromaticOffset = THREE.MathUtils.lerp(0.005, 0.0005, progress)
   
   return (
-    <EffectComposer disableNormalPass>
+    <EffectComposer enableNormalPass={false}>
       <Bloom
         luminanceThreshold={0.2}
         luminanceSmoothing={0.9}
