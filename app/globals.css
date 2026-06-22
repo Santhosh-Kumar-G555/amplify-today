@@ -1,47 +1,34 @@
-/* app/globals.css */
-
-/* Tailwind v4 uses @import instead of @tailwind directives */
 @import "tailwindcss";
 
-:root {
-  /* Base Colors */
-  --color-void:       #000000;
-  --color-abyss:      #080808;
-  --color-charcoal:   #121212;
-  --color-ash:        #1E1E1E;
-  --color-smoke:      #2A2A2A;
+@theme {
+  --color-void: #000000;
+  --color-abyss: #080808;
+  --color-charcoal: #121212;
+  --color-ash: #1E1E1E;
+  --color-smoke: #2A2A2A;
 
-  /* Text Colors */
-  --color-white:      #FFFFFF;
-  --color-off-white:  #E8E8E8;
-  --color-muted:      #888888;
+  --color-white: #FFFFFF;
+  --color-off-white: #E8E8E8;
+  --color-muted: #888888;
 
-  /* Accent Colors */
-  --color-cyan:       #00F0FF;
-  --color-cyan-dim:   #00A8B5;
-  --color-cyan-glow:  rgba(0, 240, 255, 0.15);
-  --color-orange:     #FF6B00;
+  --color-cyan: #00F0FF;
+  --color-cyan-dim: #00A8B5;
+  --color-orange: #FF6B00;
   --color-orange-dim: #C45200;
-  --color-orange-glow: rgba(255, 107, 0, 0.15);
 
+  --font-bebas: var(--font-bebas), sans-serif;
+  --font-syne: var(--font-syne), sans-serif;
+  --font-dm: var(--font-dm), sans-serif;
+  --font-mono: var(--font-mono), monospace;
+}
+
+:root {
   /* Scene Lighting */
   --scene1-light:     #2233AA;
   --scene2-light:     #00F0FF;
   --scene3-light:     #00FF88;
   --scene4-light:     #FF6B00;
   --scene5-light:     #FFFFFF;
-
-  /* Typography Scale */
-  --text-xs:    0.75rem;
-  --text-sm:    0.875rem;
-  --text-base:  1rem;
-  --text-lg:    1.25rem;
-  --text-xl:    1.5rem;
-  --text-2xl:   2rem;
-  --text-3xl:   3rem;
-  --text-4xl:   5rem;
-  --text-5xl:   8rem;
-  --text-giant: clamp(2.5rem, 12vw, 14rem);
 }
 
 html, body {

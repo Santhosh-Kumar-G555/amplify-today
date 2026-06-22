@@ -35,7 +35,7 @@ export function HubSection() {
 
       <div className="max-w-5xl mx-auto flex flex-col items-center justify-center mb-12 pointer-events-auto relative">
         <motion.h2
-          className="scene-headline font-bebas text-[clamp(3.5rem,12vw,12rem)] leading-[0.85] text-white tracking-widest mb-8"
+          className="scene-headline font-bebas text-[clamp(3rem,8vw,7rem)] leading-[1] text-white tracking-widest mb-8"
           initial={{ opacity: 0, y: 50, scale: 0.9 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
