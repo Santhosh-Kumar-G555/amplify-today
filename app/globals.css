@@ -1,0 +1,134 @@
+/* app/globals.css */
+
+/* Tailwind v4 uses @import instead of @tailwind directives */
+@import "tailwindcss";
+
+:root {
+  /* Base Colors */
+  --color-void:       #000000;
+  --color-abyss:      #080808;
+  --color-charcoal:   #121212;
+  --color-ash:        #1E1E1E;
+  --color-smoke:      #2A2A2A;
+
+  /* Text Colors */
+  --color-white:      #FFFFFF;
+  --color-off-white:  #E8E8E8;
+  --color-muted:      #888888;
+
+  /* Accent Colors */
+  --color-cyan:       #00F0FF;
+  --color-cyan-dim:   #00A8B5;
+  --color-cyan-glow:  rgba(0, 240, 255, 0.15);
+  --color-orange:     #FF6B00;
+  --color-orange-dim: #C45200;
+  --color-orange-glow: rgba(255, 107, 0, 0.15);
+
+  /* Scene Lighting */
+  --scene1-light:     #2233AA;
+  --scene2-light:     #00F0FF;
+  --scene3-light:     #00FF88;
+  --scene4-light:     #FF6B00;
+  --scene5-light:     #FFFFFF;
+
+  /* Typography Scale */
+  --text-xs:    0.75rem;
+  --text-sm:    0.875rem;
+  --text-base:  1rem;
+  --text-lg:    1.25rem;
+  --text-xl:    1.5rem;
+  --text-2xl:   2rem;
+  --text-3xl:   3rem;
+  --text-4xl:   5rem;
+  --text-5xl:   8rem;
+  --text-giant: clamp(2.5rem, 12vw, 14rem);
+}
+
+html, body {
+  background-color: var(--color-void);
+  color: var(--color-white);
+  overflow-x: hidden;
+}
+
+/* Scroll-section heights */
+.scene-section {
+  height: 250vh;
+  position: relative;
+}
+
+/* Canvas is fixed behind content */
+.canvas-fixed {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+/* Content overlays */
+.scene-overlay {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem 3rem 4rem;
+  z-index: 10;
+  pointer-events: none; /* Let clicks pass through to canvas if needed */
+}
+
+/* Re-enable pointer events for specific interactive elements inside the overlay */
+.scene-overlay > * {
+  pointer-events: auto;
+}
+
+/* Glitch animation utility class */
+.glitch-text {
+  animation: glitch 0.3s infinite;
+  animation-play-state: paused;
+  font-family: var(--font-mono);
+  color: var(--color-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translateX(0); }
+  25%       { transform: translateX(2px); }
+  75%       { transform: translateX(-1px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes pulse-scale {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.02); }
+}
+
+.scene-section[data-scene="2"],
+.scene-section[data-scene="4"] {
+  background-color: var(--color-orange);
+  color: var(--color-void);
+  border-top: 10px solid var(--color-void);
+  border-bottom: 10px solid var(--color-void);
+}
+
+.scene-section[data-scene="2"] .scene-headline,
+.scene-section[data-scene="4"] .scene-headline {
+  color: var(--color-void);
+}
+
+.scene-section[data-scene="2"] .text-off-white,
+.scene-section[data-scene="4"] .text-off-white {
+  color: var(--color-charcoal);
+}
