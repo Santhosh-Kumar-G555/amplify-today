@@ -26,7 +26,7 @@ export function StickerDecal({ src, className, speed = 1, rotation = 0 }: { src:
 
   return (
     <div ref={decalRef} className={`absolute pointer-events-none z-30 ${className}`}>
-      <Image alt="Graphic Decal" className="w-full h-auto drop-shadow-2xl mix-blend-screen" height={500} src={src} width={500}/>
+      <Image alt="Graphic Decal" className="w-full h-auto drop-shadow-2xl " height={500} src={src} width={500}/>
     </div>
   )
 }

@@ -15,7 +15,7 @@ export function MarqueeStrip() {
 
     items.forEach((item) => {
       gsap.to(item, {
-        xPercent: -100,
+        x: "-100%",
         repeat: -1,
         duration: 25,
         ease: 'none',

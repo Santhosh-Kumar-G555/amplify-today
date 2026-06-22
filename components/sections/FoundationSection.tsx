@@ -21,7 +21,7 @@ export function FoundationSection() {
 
       <div className="max-w-4xl">
         <motion.h2
-          className="scene-headline font-bebas text-[clamp(3rem,8vw,9rem)] leading-[0.85] text-white tracking-widest mb-4"
+          className="scene-headline font-bebas text-[clamp(3rem,8vw,7rem)] leading-[1] text-white tracking-widest mb-4"
           initial={{ opacity: 0, y: 50, clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)' }}
           whileInView={{ opacity: 1, y: 0, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }}
           viewport={{ once: true, margin: "-100px" }}
